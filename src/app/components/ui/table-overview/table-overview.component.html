@@ -1,0 +1,112 @@
+<mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="ID, Nombre, etc..." #input>
+  </mat-form-field>  
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> 
+                {{row.id}} 
+            </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let row"> 
+                {{row.nombre}} 
+            </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="precio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+            <td mat-cell *matCellDef="let row"> 
+                {{row.precio}}
+            </td>
+        </ng-container>
+        
+        <!-- Stock Column -->
+        <ng-container matColumnDef="cantidadEnStock">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+            <td mat-cell *matCellDef="let row"> 
+                {{row.cantidadEnStock}}
+            </td>
+        </ng-container>       
+
+       <!-- CodigosBarra Column -->
+         <!-- <ng-container matColumnDef="codigoBarra">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigos Barra </th>
+            <td mat-cell *matCellDef="let row"> 
+            <ng-container *ngIf="row.codigosBarra && row.codigosBarra.length > 0; else noCodigo">
+                {{ row.codigosBarra[0].codigo }} 
+                <span *ngIf="row.codigosBarra.length > 1"> (+{{row.codigosBarra.length - 1}}) </span>
+            </ng-container>
+            <ng-template #noCodigo> No tiene </ng-template> 
+            </td>
+        </ng-container> -->
+
+        <!-- Active Column -->
+        <ng-container matColumnDef="activo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Activo </th>
+            <td mat-cell *matCellDef="let row"> 
+            {{ row.activo ? 'Sí' : 'No' }}
+            </td>
+        </ng-container> 
+
+        <!-- CreatedAt Column -->
+        <ng-container matColumnDef="fechaAlta">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Alta </th>
+            <td mat-cell *matCellDef="let row"> 
+                {{row.fechaAlta}} 
+            </td>
+        </ng-container>
+
+        <!-- UpdatedAt Column -->
+        <ng-container matColumnDef="fechaModificacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Modificación </th>
+            <td mat-cell *matCellDef="let row"> 
+                {{row.fechaModificacion}} 
+            </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+            <td mat-cell *matCellDef="let row"> 
+                <button mat-icon-button aria-label="Example icon-button with a menu" class="mat-mdc-menu-trigger mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base" 
+                mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered aria-haspopup="menu" aria-expanded="false" [matMenuTriggerFor]="menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                   <!-- <button mat-menu-item (click)="openModal(row)">
+                      <mat-icon>visibility</mat-icon>
+                      <span >Ver</span>
+                    </button> -->
+                    <button mat-menu-item (click)="openModal(row)">
+                      <mat-icon>edit</mat-icon>
+                      <span>Editar</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteProduct(row.id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Borrar</span>
+                    </button>
+                  </mat-menu>                                                 
+            </td>
+        </ng-container>
+        
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleccionar página de productos"></mat-paginator>
+</div>

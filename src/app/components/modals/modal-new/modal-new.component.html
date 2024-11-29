@@ -1,0 +1,62 @@
+<form (ngSubmit)="acceptAction()">
+  <!-- Título -->
+  <div class="form-title">
+    <h1>Nuevo Producto</h1>
+  </div>
+
+  <!-- Nombre -->
+  <div class="input-item full-width">
+    <label for="nombre">Nombre del Producto</label>
+    <input
+      type="text"
+      id="nombre"
+      [(ngModel)]="productData.nombre"
+      name="nombre"
+      required
+    />
+  </div>
+
+  <!-- Fila de Precio y Cantidad en Stock -->
+  <div class="input-fields">
+    <!-- Precio -->
+    <div class="input-item small">
+      <label for="precio">Precio</label>
+      <input
+        type="number"
+        id="precio"
+        [(ngModel)]="productData.precio"
+        name="precio"
+        required
+      />
+    </div>
+
+    <!-- Cantidad en Stock -->
+    <div class="input-item small">
+      <label for="cantidadEnStock">Cantidad en Stock</label>
+      <input
+        type="number"
+        id="cantidadEnStock"
+        [(ngModel)]="productData.cantidadEnStock"
+        name="cantidadEnStock"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Activo centrado -->
+  <div class="activo-group">
+    <label for="activo">Producto Activo</label>
+    <input
+      type="checkbox"
+      id="activo"
+      [(ngModel)]="productData.activo"
+      name="activo"
+    />
+  </div>
+
+  <!-- Botones -->
+  <div class="button-group">
+    <button type="submit">Crear Producto</button>
+    <button type="button" (click)="closeModal()">Cancelar</button>
+  </div>
+</form>

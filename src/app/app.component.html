@@ -1,0 +1,32 @@
+<mat-toolbar class="header-toolbar">
+  <button disabled mat-icon-button (click)="toggleSidebar()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title">Panel de Control</span>
+  <span class="header-spacer"></span>
+</mat-toolbar>
+
+<mat-drawer-container class="content-container">
+  <mat-drawer mode="side" [opened]="sidebarOpen" class="sidebar">
+    <button mat-flat-button class="load-db-button">
+      <mat-icon>cloud_download</mat-icon> Generar Base de Datos
+    </button>
+  </mat-drawer>
+
+  <mat-drawer-content class="main-content">
+    <h1>Gestor de productos</h1>
+
+    <div class="table-container">
+      <table-overview></table-overview>
+    </div>
+
+    <section class="button-section">
+      <div>
+        <button mat-flat-button (click)="openModalNew()">
+          <mat-icon>add_</mat-icon> Agregar </button>
+      </div>
+    </section>
+
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

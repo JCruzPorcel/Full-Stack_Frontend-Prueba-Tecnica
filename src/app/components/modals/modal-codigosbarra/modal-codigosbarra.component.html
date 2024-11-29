@@ -1,0 +1,47 @@
+<div class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Códigos de Barra</h2>
+      <button class="close-btn" (click)="closeModal()">X</button>
+    </div>
+
+    <!-- Códigos de barras -->
+    <div class="modal-body">
+      <form [formGroup]="form">
+        <!-- Iteración de los códigos de barra en el formulario -->
+        <div *ngFor="let codigo of codigosDeBarra.controls; let i = index" class="input-group">
+          <div [formGroupName]="i" class="input-fields">
+            <!-- Campo de código de barra -->
+            <form-field 
+              [label]="'Código de barras'" 
+              [inputType]="'text'">
+              [isDisabled]="true"
+            </form-field>
+
+            <!-- Checkbox para el código activo -->
+            <checkbox 
+              [label]="'Activo'" 
+              formControlName="activo">
+            </checkbox>
+
+            <!-- Botón para eliminar el código de barra -->
+            <button mat-flat-button (click)="removeCodigo(i)" class="remove-btn">Eliminar</button>
+          </div>
+        </div>
+
+        <!-- Botón para agregar más códigos de barra -->
+        <div class="add-btn-container">
+          <button mat-flat-button (click)="addCodigo()">Agregar Código de Barra</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Acciones del modal -->
+    <div class="modal-footer">
+      <div class="example-button-row">
+        <button mat-flat-button (click)="acceptAction()">Confirmar</button>
+        <button mat-flat-button (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

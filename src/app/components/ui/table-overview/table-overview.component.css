@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  padding: 8px;
+  text-align: left;
+}
+
+td, th {
+  width: 20%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-column-createdAt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-header-cell {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.mat-cell {
+  font-size: 14px;
+  padding: 8px;
+}

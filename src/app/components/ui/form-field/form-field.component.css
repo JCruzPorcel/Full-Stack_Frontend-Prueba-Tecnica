@@ -1,0 +1,46 @@
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px; /* Añade un margen de 8px entre los campos de formulario */
+}
+
+.example-right-align {
+  text-align: right; /* Alinea el texto dentro de los elementos a la derecha */
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none; /* Oculta los botones de incremento/decremento en los inputs tipo number */
+}
+
+/* Ajustes para asegurar que el contenedor ocupe todo el espacio disponible */
+.example-container {
+  width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+  max-width: 100%; /* Asegura que el contenedor no se expanda más allá del espacio disponible */
+  box-sizing: border-box; /* Asegura que el padding y los márgenes no afecten al tamaño */
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten correctamente si es necesario */
+}
+
+.example-container mat-form-field {
+  width: 100%; /* Hace que cada campo de formulario ocupe todo el ancho disponible */
+  margin-bottom: 12px; /* Añade un espacio entre los campos de formulario */
+}
+
+.example-container mat-form-field .mat-input-element {
+  width: 100%; /* Asegura que el input dentro del form-field ocupe el 100% de su contenedor */
+}
+
+.example-container input {
+  padding: 12px; /* Añade espacio dentro de los campos de texto */
+  border: 1px solid #ccc; /* Añade un borde gris suave */
+  border-radius: 4px; /* Redondea las esquinas de los campos de texto */
+}
+
+.example-container .example-right-align {
+  text-align: right; /* Alinea el texto a la derecha */
+}
+
+/* Ajuste para eliminar el spin button en inputs tipo number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}

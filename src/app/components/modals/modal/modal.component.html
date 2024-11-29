@@ -1,0 +1,62 @@
+<div class="modal-overlay">
+  <div class="modal-container">
+    <!-- Título del modal -->
+    <div class="modal-header">
+      <h2>Información de producto</h2>
+      <button class="close-btn" (click)="closeModal()">X</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Fila 1: ID (solo lectura) -->
+      <div class="modal-row">
+        <div class="form-group full-width">
+          <label for="productId">ID</label>
+          <input id="productId" type="text" [value]="productData.id" disabled />
+        </div>
+      </div>
+
+      <!-- Fila 2: Nombre (editable), Producto Activo (editable) -->
+      <div class="modal-row">
+        <div class="form-group">
+          <label for="productName">Nombre</label>
+          <input id="productName" type="text" [(ngModel)]="productData.nombre" name="nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="productActive">Producto Activo</label>
+          <input id="productActive" type="checkbox" [(ngModel)]="productData.activo" name="activo" />
+        </div>
+      </div>
+
+      <!-- Fila 3: Stock (editable), Precio (editable) -->
+      <div class="modal-row">
+        <div class="form-group">
+          <label for="productStock">Stock</label>
+          <input id="productStock" type="number" [(ngModel)]="productData.cantidadEnStock" name="cantidadEnStock" required />
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Precio</label>
+          <input id="productPrice" type="number" [(ngModel)]="productData.precio" name="precio" required />
+        </div>
+      </div>
+
+      <!-- Fila 4: Fecha de alta (solo), Fecha de modificación (solo) -->
+      <div class="modal-row">
+        <div class="form-group">
+          <label for="productCreationDate">Fecha de alta</label>
+          <input id="productCreationDate" type="text" [value]="productData.fechaAlta" disabled />
+        </div>
+        <div class="form-group">
+          <label for="productModificationDate">Fecha de modificación</label>
+          <input id="productModificationDate" type="text" [value]="productData.fechaModificacion" disabled />
+        </div>
+      </div>
+    </div>
+
+    <!-- Acciones del modal -->
+    <div class="modal-footer">
+      <div class="button-row">
+        <button (click)="acceptAction()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
